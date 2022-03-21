@@ -40,8 +40,7 @@ class CX:
         data_i = []
         for index in info:
             if index['status'] == 1:
-                location = index['firstLevelName'] + index['secondLevelName'] + index['thirdLevelName'] + index[
-                    'seatNum']
+                location = index['firstLevelName'] + index['secondLevelName'] + index['thirdLevelName'] + index['seatNum']
                 return "{}:已经签过到了，快学习吧~".format(location)
             if index['status'] == 0 or index['status'] == 3 or index['status'] == 5:
                 data_i.append(index)
@@ -55,14 +54,13 @@ class CX:
                     if int(index['startTime']) < inital:
                         inital = index['startTime']
                         seatid = index['id']
-                        location = index['firstLevelName'] + index['secondLevelName'] + index['thirdLevelName'] + index[
-                            'seatNum']
+                        location = index['firstLevelName'] + index['secondLevelName'] + index['thirdLevelName'] + index['seatNum']
             else:
                 seatid = data_i[-1]['id']
-                location = data_i[-1]['firstLevelName'] + data_i[-1]['secondLevelName'] + data_i[-1]['thirdLevelName'] + \
-                           data_i[-1]['seatNum']
+                location = data_i[-1]['firstLevelName'] + data_i[-1]['secondLevelName'] + data_i[-1]['thirdLevelName'] + data_i[-1]['seatNum']
             response = self.session.get(url='https://office.chaoxing.com/data/apps/seat/sign?id={}'.format(seatid))
             if response.json()['success']:
+                log(self.acc, '签到', '成功', location)
                 return "{}：签到成功".format(location)
             return "{}：{}".format(location, response.json()['msg'])
         return "没有座位可以签到"
@@ -117,9 +115,9 @@ class CX:
                                         'type=-1').json()['data']['reserveList']
         result = []
         for index in response:
-            if index['today'] == time.strftime('%F', time.localtime(time.time())) or index['today'] == (
-                    date.today() + timedelta(days=+1)).strftime("%Y-%m-%d"):
-                result.append(index)
+            if index['type'] == -1:
+                if index['today'] == time.strftime('%F', time.localtime(time.time())) or index['today'] == (date.today() + timedelta(days=+1)).strftime("%Y-%m-%d"):
+                    result.append(index)
         return result
 
 
