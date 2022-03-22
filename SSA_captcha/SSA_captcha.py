@@ -144,6 +144,10 @@ def diy_book(starttime, endtime):
     start = int(start_h)
     for c in range(int(end_h) - int(start_h)):
         if (int(end_h) - start) <= 2:
+            if (int(end_h) - start) == 2 and start_m != end_m:
+                ls_time.append([str(start) + ':' + start_m, str(int(start) + 2) + ':' + start_m])
+                start += 2
+                continue
             ls_time.append([str(start) + ':' + start_m, end_h + ':' + end_m])
             break
         ls_time.append([str(start) + ':' + start_m, str(int(start) + 2) + ':' + start_m])
