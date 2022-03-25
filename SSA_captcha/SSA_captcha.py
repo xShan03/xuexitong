@@ -16,35 +16,19 @@ class CX:
         self.roomid = roomid
         self.seatnums = seatnums
         self.day = (date.today() + timedelta(days=+1)).strftime("%Y-%m-%d")
+        self.captcha = None
         self.token = None
         self.pageToken = None
-        self.captcha = None
+        self.captcha_is = False
         self.session = requests.session()
+        # self.session.headers = headers.get_headers()
         self.session.headers = {
             'User-Agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) '
                           'AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Mobile Safari/537.36',
             'sec-ch-ua-platform': '"Android"',
             'Referer': 'https://office.chaoxing.com/',
         }
-        self.ac()
-
-    def ac(self):
-        con = 0
-        while True:
-            if con == 6:
-                break
-            try:
-                self.login()
-                self.get_token()
-                break
-            except Exception as e:
-                con += 1
-                print('error!', self.acc, e)
-                self.session.close()
-                self.session = requests.session()
-                continue
-            finally:
-                pass
+        self.login()
 
     def login(self):
         c_url = 'https://passport2.chaoxing.com/mlogin?' \
@@ -79,19 +63,47 @@ class CX:
         @param start: 开始时间
         @param end: 结束时间
         """
-        while True:
-            self.captcha = self.get_captcha()
-            if self.captcha:
-                break
-        response = self.session.get(url='https://office.chaoxing.com/data/apps/seat/submit?'
-                                        f'roomId={self.roomid}&'
-                                        f'startTime={start}&'
-                                        f'endTime={end}&'
-                                        f'day={self.day}&'
-                                        f'seatNum={self.seatnums}&'
-                                        f'captcha={self.captcha}&'
-                                        f'token={self.token}')
-        print(self.acc, response.json())
+        res = None
+        if not self.captcha_is:
+            self.get_token()
+            res = self.session.get(url='https://office.chaoxing.com/data/apps/seat/submit?'
+                                            f'roomId={self.roomid}&'
+                                            f'startTime={start}&'  # %3A
+                                            f'endTime={end}&'
+                                            f'day={self.day}&'
+                                            f'seatNum={self.seatnums}&'
+                                            f'captcha=0&'
+                                            f'token={self.token}')
+            if res.json()['msg'] == '验证失败，请重新验证':
+                self.captcha_is = True
+                self.get_token()
+                while True:
+                    self.captcha = self.get_captcha()
+                    if self.captcha:
+                        break
+                res = self.session.get(url='https://office.chaoxing.com/data/apps/seat/submit?'
+                                                f'roomId={self.roomid}&'
+                                                f'startTime={start}&'  # %3A
+                                                f'endTime={end}&'
+                                                f'day={self.day}&'
+                                                f'seatNum={self.seatnums}&'
+                                                f'captcha={self.captcha}&'
+                                                f'token={self.token}')
+        else:
+            self.get_token()
+            while True:
+                self.captcha = self.get_captcha()
+                if self.captcha:
+                    break
+            res = self.session.get(url='https://office.chaoxing.com/data/apps/seat/submit?'
+                                            f'roomId={self.roomid}&'
+                                            f'startTime={start}&'  # %3A
+                                            f'endTime={end}&'
+                                            f'day={self.day}&'
+                                            f'seatNum={self.seatnums}&'
+                                            f'captcha={self.captcha}&'
+                                            f'token={self.token}')
+        print(self.acc, res.json())
 
     def get_captcha(self):
         """
