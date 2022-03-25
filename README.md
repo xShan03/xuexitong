@@ -15,11 +15,10 @@
 
 ## 目录
 
-<a href="#p1"><font size=2 color=#00f>公众号更新日志</font></a>
-<a href="#p2"><font size=2 color=#00f>微信公众号使用教程</font></a>
-<a href="#p3"><font size=2 color=#00f>接口更新日志</font></a>
-<a href="#pgjj"><font size=2 color=#00f>苹果捷径简单教程</font></a>
-
+<a href="#p1"><font size=2 color=#00f>公众号更新日志</font></a><br>
+<a href="#p2"><font size=2 color=#00f>微信公众号使用教程</font></a><br>
+<a href="#p3"><font size=2 color=#00f>接口更新日志</font></a><br>
+<a href="#pgjj"><font size=2 color=#00f>苹果捷径简单教程</font></a><br>
 
 ## <a id="p1">公众号更新日志</a>
 
@@ -61,7 +60,7 @@
 * 修复了请求返回时显示手机号或者密码的错误提示，但实际已操作。
 * 优化了文字提示：成功操作会显示位置已经座位号。
 
-### 部分功能已经开通接口（<a href="#pgjj"><color=#00f>苹果捷径使用方法</font></a>）
+### 部分功能已经开通接口（<a href="#pgjj"><color=#00f>苹果捷径使用方法</a>）
 
 #### 签到
 
