@@ -15,10 +15,10 @@
 
 ## 目录
 
-▶<a href="#p1"><font size=2 color=#00f>公众号更新日志</font></a><br>
-▶<a href="#p2"><font size=2 color=#00f>微信公众号使用教程</font></a><br>
-▶<a href="#p3"><font size=2 color=#00f>接口更新日志</font></a><br>
-▶<a href="#pgjj"><font size=2 color=#00f>苹果捷径简单教程</font></a><br>
+* <a href="#p1"><font size=2 color=#00f>公众号更新日志</font></a><br>
+* <a href="#p2"><font size=2 color=#00f>微信公众号使用教程</font></a><br>
+* <a href="#p3"><font size=2 color=#00f>接口更新日志</font></a><br>
+* <a href="#pgjj"><font size=2 color=#00f>苹果捷径简单教程</font></a><br>
 
 ## <a id="p1">公众号更新日志</a>
 
