@@ -1,8 +1,9 @@
+# 滑动验证码处理模块
 import cv2
 import numpy as np
 
 
-# 获取滑块的大小
+# 对滑块做精细化处理
 def fix_img(filename):
     img = cv2.imdecode(np.array(bytearray(filename), dtype='uint8'), cv2.IMREAD_UNCHANGED)
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -14,6 +15,7 @@ def fix_img(filename):
     return mixintu
 
 
+# 主方法
 def main(fadebg, fullbg):
     """
     处理滑块验证码
