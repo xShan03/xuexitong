@@ -6,7 +6,7 @@
 
 # 微信公众号现在已经开放测试
 
-![杜恩](https://raw.githubusercontent.com/Doone-skser/SSA/main/WXqrcode.jpg)
+![杜恩](https://oss.nvidia.fun/WXqrcode.jpg)
 
  需要联系我通过一下的任何方式发送你的**房间ID**以及**开始预约第二天座的时间**：
 
