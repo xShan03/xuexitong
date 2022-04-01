@@ -74,21 +74,24 @@ class CX:
                                             f'seatNum={self.seatnums}&'
                                             f'captcha=0&'
                                             f'token={self.token}')
-            if res.json()['msg'] == '验证失败，请重新验证':
-                self.captcha_is = True
-                self.get_token()
-                while True:
-                    self.captcha = self.get_captcha()
-                    if self.captcha:
-                        break
-                res = self.session.get(url='https://office.chaoxing.com/data/apps/seat/submit?'
-                                                f'roomId={self.roomid}&'
-                                                f'startTime={start}&'  # %3A
-                                                f'endTime={end}&'
-                                                f'day={self.day}&'
-                                                f'seatNum={self.seatnums}&'
-                                                f'captcha={self.captcha}&'
-                                                f'token={self.token}')
+            try:
+                if res.json()['msg'] == '验证失败，请重新验证':
+                    self.captcha_is = True
+                    self.get_token()
+                    while True:
+                        self.captcha = self.get_captcha()
+                        if self.captcha:
+                            break
+                    res = self.session.get(url='https://office.chaoxing.com/data/apps/seat/submit?'
+                                                    f'roomId={self.roomid}&'
+                                                    f'startTime={start}&'  # %3A
+                                                    f'endTime={end}&'
+                                                    f'day={self.day}&'
+                                                    f'seatNum={self.seatnums}&'
+                                                    f'captcha={self.captcha}&'
+                                                    f'token={self.token}')
+            except:
+                pass
         else:
             self.get_token()
             while True:
