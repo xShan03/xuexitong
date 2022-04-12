@@ -157,20 +157,24 @@ def diy_book(starttime, endtime):
     end_h, end_m = endtime.split(':', 1)
     ls_time = []
     start = int(start_h)
-    for c in range(int(end_h) - int(start_h)):
+    for c in range(int(end_h) - int(start_h)  + 1):
         if (int(end_h) - start) <= 2:
             if (int(end_h) - start) == 2 and start_m == end_m:
+                ls_time.append([str(start) + ':' + start_m, str(int(start) + 2) + ':' + start_m])
+                break
+            if (int(end_h) - start) == 2 and start_m == '30':
                 ls_time.append([str(start) + ':' + start_m, str(int(start) + 2) + ':' + end_m])
                 break
-            if (int(end_h) - start) == 2 and start_m != end_m:
-                if start_m == '00' and end_m == '30':
-                    ls_time.append([str(start) + ':' + start_m, str(int(start) + 2) + ':' + start_m])
-                    start += 2
-                    continue
-                ls_time.append([str(start) + ':' + start_m, str(int(start) + 2) + ':' + end_m])
+            if (int(end_h) - start) == 2 and start_m == '00':
+                ls_time.append([str(start) + ':' + start_m, str(int(start) + 2) + ':' + start_m])
                 start += 2
                 continue
-            ls_time.append([str(start) + ':' + start_m, end_h + ':' + end_m])
+            if (int(end_h) - start) == 1:
+                ls_time.append([str(start) + ':' + start_m, str(int(start) + 1) + ':' + end_m])
+                break
+            if int(end_h) == start and start_m == '00':
+                ls_time.append([str(start) + ':' + start_m, str(int(start)) + ':' + end_m])
+                break
             break
         ls_time.append([str(start) + ':' + start_m, str(int(start) + 2) + ':' + start_m])
         start += 2
