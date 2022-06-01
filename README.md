@@ -16,9 +16,6 @@
 * **dee1024 & kenvifire：https://github.com/dee1024/pytorch-captcha-recognition**
 * **PJDong：https://github.com/pprp/captcha_identify.pytorch**
 
-## 目录
-
-* <a href="#pgjj"><font size=2 color=#00f>苹果捷径简单教程</font></a><br>
 
 ### 部分功能已经开通接口（<a href="#pgjj" color=#00f>苹果捷径使用方法</a>）
 
@@ -46,6 +43,7 @@
 
 ## <a id="pgjj">苹果捷径简单教程</a>
 
-* 从url获取内容，url填上你要请求的地址，请求方式选择post，添加两个文本值，详细看下方的请求参数。
+* 从url获取内容，url填上你要请求的地址，请求方式选择post，添加两个文本值，详细看下方图片。
+![快捷指令参考](https://oss.nvidia.fun/github/reference.PNG)
 * 获取字典值，获取"msg"的值
 * 显示提醒，将msg的值显示在弹窗。
