@@ -44,6 +44,6 @@
 ## <a id="pgjj">苹果捷径简单教程</a>
 
 * 从url获取内容，url填上你要请求的地址，请求方式选择post，添加两个文本值，详细看下方图片。
-![快捷指令参考](https://oss.nvidia.fun/github/reference.PNG)
+![快捷指令](https://raw.githubusercontent.com/Doone-skser/SSA/main/reference.png)
 * 获取字典值，获取"msg"的值
 * 显示提醒，将msg的值显示在弹窗。
