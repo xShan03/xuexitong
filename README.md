@@ -7,17 +7,17 @@
 # 功能接口将于6月5日前回归
 
 新特性
+
 * 功能与参数不变，有过一次请求过后响应更快。
 * 验证码自助识别接口上线，将支持4位纯数字验证码，成功率约为99.2%。
 
-验证码深度学习感谢以下项目的支持：
+验证码深度学习感谢以下项目的支持
 
 * **dee1024 & kenvifire：https://github.com/dee1024/pytorch-captcha-recognition**
 * **PJDong：https://github.com/pprp/captcha_identify.pytorch**
 
 ## 目录
 
-* <a href="#p3"><font size=2 color=#00f>接口更新日志</font></a><br>
 * <a href="#pgjj"><font size=2 color=#00f>苹果捷径简单教程</font></a><br>
 
 ### 部分功能已经开通接口（<a href="#pgjj" color=#00f>苹果捷径使用方法</a>）
